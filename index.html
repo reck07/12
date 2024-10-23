@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notepad App</h1>
+            <div id="date-time"></div>
+            <input type="text" id="searchInput" placeholder="Search notes" oninput="searchNotes()" />
+        </header>
+        <div class="toolbar">
+            <button onclick="formatText('bold')">B</button>
+            <button onclick="formatText('italic')">I</button>
+            <button onclick="formatText('underline')">U</button>
+            <button onclick="insertSticker('😀')">😀</button>
+            <button onclick="addPage()">➕ New Page</button>
+            <button onclick="removePage()">➖ Remove Page</button>
+            <button onclick="exportToPDF()">📄 Export as PDF</button>
+            <button onclick="exportToWord()">📄 Export as Word</button>
+            <button onclick="exportToPPT()">📊 Export as PPT</button>
+            <input type="color" onchange="changeBackgroundColor(this.value)" title="Change Background Color" />
+        </div>
+        <div id="notesContainer">
+            <div class="note" contenteditable="true" placeholder="Start typing your notes here..."></div>
+        </div>
+        <footer>
+            <button onclick="saveNote()">💾 Save Notes</button>
+            <button onclick="clearNote()">🗑️ Clear Notes</button>
+        </footer>
+    </div>
+    <input type="file" accept="image/*" onchange="addImage(event)" style="display:none;" id="imageUpload">
+    <script src="script.js"></script>
+</body>
+</html>
